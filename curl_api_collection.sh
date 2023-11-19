@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#GET
+curl -X 'GET' 'http://localhost:8000/goals'
+curl -X 'GET' 'http://localhost:8000/users/John/goals'
+
+#POST
+curl -X 'POST' 'http://127.0.0.1:8000/goals/3/progress?progress=0.5'
+
+#PUT
+curl -X 'PUT' \
+  'http://127.0.0.1:8000/goals/1' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 1,
+  "title": "Title",
+  "due_date": "07.11.2023",
+  "frequency": 2,
+  "progress": 0.4,
+  "archived": false
+}'
+
+#DELETE
+curl -X 'DELETE' 'http://127.0.0.1:8000/goals/2'
+
+
+# Calendarific - https://calendarific.com/api-documentation
+# GET
+curl 'https://calendarific.com/api/v2/holidays?&api_key=BJ1KaggoPMlP9byzG9cI7t7WVEPlRBE3&country=PL&year=2001'
+curl 'https://calendarific.com/api/v2/holidays?&api_key=BJ1KaggoPMlP9byzG9cI7t7WVEPlRBE3&country=US&year=2022'
